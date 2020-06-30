@@ -2,9 +2,11 @@
 set -euxo pipefail
 
 TMPDIR="/tmp/colorschemes"
+SCRIPTDIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )/colorschemes"
 
 # Create dir if not already there
 mkdir -p $TMPDIR
+mkdir -p $SCRIPTDIR
 
 # cp my list of nice colorschemes:
 cp ~/dotfiles/nice-vim-colors.txt .
@@ -38,4 +40,6 @@ done
 
 # Copy contents of ./colorschemes to somewhere vim looks for its colorschemes
 cp $TMPDIR/* /Users/univers/.vim/colors
+# Copy colorschemes to this repository
+cp $TMPDIR/* $SCRIPTDIR
 
